@@ -26,6 +26,9 @@ void DBHelper::open()
     }else{
         qDebug()<<"База данных открыта";
     }
+    QSqlQuery q;
+    q.prepare("CREATE TABLE book (id	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, name	TEXT NOT NULL,number	TEXT NOT NULL UNIQUE);");
+    q.exec();
 }
 
 vector<Person> DBHelper::getAllContact(){
